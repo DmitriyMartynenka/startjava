@@ -6,7 +6,6 @@ public class MyFirstGame {
             System.out.println("Необходимо загадать число в диапазоне (0;100]");
         } else {
             while (computerNumber != playerNumber) {
-
                 if (playerNumber > computerNumber) {
                     System.out.println("Введенное вами число больше того, что загадал компьютер");
                     playerNumber--;
