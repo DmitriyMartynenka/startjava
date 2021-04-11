@@ -8,7 +8,7 @@ public class WolfTest {
 		wolf1.setColor("grey");
 
 		System.out.println("Wolf information: sex - " + wolf1.getSex() + ", nickname - " + wolf1.getNickname() + 
-			", weight - " + wolf1.getWeight() + ", age - " + wolf1.getAge() + ", color - " + wolf1.getColor());
+				", weight - " + wolf1.getWeight() + ", age - " + wolf1.getAge() + ", color - " + wolf1.getColor());
 
 		wolf1.go();
 		wolf1.sit();
