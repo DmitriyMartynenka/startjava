@@ -11,22 +11,13 @@ public class GuessNumberTest {
         System.out.println("Игрок 1: " + player1.getName());
         System.out.println("Игрок 2: " + player2.getName());
         GuessNumber guessNumber = new GuessNumber(player1, player2);
-        //System.out.println(guessNumber.player1.getName());
-        //System.out.println(guessNumber.player2.getName());
         String answer;
         do {
-            guessNumber.guessNumberGame();
-            System.out.println("Хотите продолжить игру? [yes/no]");
+            guessNumber.start();
             do {
-                answer = sc.nextLine();
-                if (answer.equals("no") || answer.equals("yes")) {
-                    break;
-                }
                 System.out.println("Хотите продолжить игру? [yes/no]:");
-
-            }
-            while (!answer.equals("yes") && !answer.equals("no"));
-        }
-        while (answer.equals("yes"));
+                answer = sc.nextLine();
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (answer.equals("yes"));
     }
 }

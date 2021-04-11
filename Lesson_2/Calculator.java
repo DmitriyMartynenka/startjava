@@ -5,24 +5,12 @@ public class Calculator {
     private char operation;
     private int result;
 
-    public int getA() {
-        return a;
-    }
-
     public void setA(int a) {
         this.a = a;
     }
 
-    public int getB() {
-        return b;
-    }
-
     public void setB(int b) {
         this.b = b;
-    }
-
-    public char getOperation() {
-        return operation;
     }
 
     public void setOperation(char operation) {
@@ -57,7 +45,7 @@ public class Calculator {
                 } else {
                     int result = 1;
                     for (int i = 1; i <= b; i++) {
-                        result = result * a;
+                        result *= a;
                     }
                     System.out.println("Число " + a + " в " + b + " степени составит " + result);
                 }
