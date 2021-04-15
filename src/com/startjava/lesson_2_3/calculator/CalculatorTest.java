@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.calculator;
+
 import java.util.Scanner;
 
 public class CalculatorTest {
@@ -13,6 +15,7 @@ public class CalculatorTest {
             System.out.println("Введите второе число");
             calc.setB(sc.nextInt());
             calc.calculate();
+            sc.nextLine();
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 answer = sc.nextLine();
