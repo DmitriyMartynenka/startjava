@@ -14,7 +14,6 @@ public class CalculatorTest {
             calc.setA(Integer.parseInt(expression[0]));
             calc.setOperation(expression[1].charAt(0));
             calc.setB(Integer.parseInt(expression[2]));
-            calc.calculate();
             System.out.println("Результат вычислений: " + calc.calculate());
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");

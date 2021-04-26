@@ -1,5 +1,7 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
+
 public class Player {
 
     private String name;
@@ -13,12 +15,13 @@ public class Player {
         return name;
     }
 
-    public int findNumber(int index) {
-        return numbers[index];
+    public int[] getNumbers() {
+        numbers = Arrays.copyOf(numbers, numbers.length);
+        return numbers;
     }
 
-    public int[] getNumbers() {
-        return numbers;
+    public int getLastNumber(int index) {
+        return numbers[index];
     }
 
     public void addNumber(int index, int number) {

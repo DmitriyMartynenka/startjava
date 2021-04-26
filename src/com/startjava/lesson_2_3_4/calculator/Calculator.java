@@ -5,7 +5,6 @@ public class Calculator {
     private int a;
     private int b;
     private char operation;
-    private int result;
 
     public void setA(int a) {
         this.a = a;
@@ -22,28 +21,21 @@ public class Calculator {
     public int calculate() {
         switch (operation) {
             case '+':
-                result = Math.addExact(a, b);
-                return result;
+                return Math.addExact(a, b);
             case '-':
-                result = a - b;
-                return result;
+                return a - b;
             case '*':
-                result = a * b;
-                return result;
+                return a * b;
             case '/':
-                result = Math.floorDiv(a, b);
-                return result;
+                return Math.floorDiv(a, b);
             case '%':
-                result = a % b;
-                return result;
+                return a % b;
             case '^':
                 double a1 = a;
                 double b1 = b;
-                result = (int)Math.pow(a1, b1);
-                return result;
+                return (int)Math.pow(a1, b1);
             default:
-                System.out.println("Error");
-                return result;
+                return 0;
         }
     }
 }

@@ -14,7 +14,7 @@ public class GuessNumber {
     private Player player1;
     private Player player2;
     private Scanner sc = new Scanner(System.in);
-    private int count = 0;
+    private int count;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -22,18 +22,19 @@ public class GuessNumber {
     }
 
     public void start() {
-        int computerNumber = randomNumber();
+        int targetNumber = randomNumber();
         System.out.println("У каждого игрока по 10 попыток");
         for (int i = 0; i < 10; i++) {
             System.out.println("Первый игрок вводит число");
-            if (playerGuess(computerNumber, i, player1, FIRST_PLAYER)) break;
+            if (playerGuess(targetNumber, i, player1, FIRST_PLAYER)) break;
             System.out.println("Второй игрок вводит число");
-            if (playerGuess(computerNumber, i, player2, SECOND_PLAYER)) break;
+            if (playerGuess(targetNumber, i, player2, SECOND_PLAYER)) break;
             count++;
         }
         printPlayerNumbers(player1);
         printPlayerNumbers(player2);
         System.out.println();
+        setDefaultValues();
     }
 
     private int randomNumber() {
@@ -41,31 +42,31 @@ public class GuessNumber {
         return random.nextInt(100) + 1;
     }
 
-    private boolean playerGuess(int computerNumber, int i, Player player, String playerSequence) {
+    private boolean playerGuess(int targetNumber, int i, Player player, String playerSequence) {
         player.addNumber(i, sc.nextInt());
-        if (player.findNumber(i) == computerNumber) {
+        if (player.getLastNumber(i) == targetNumber) {
             System.out.print("Игрок " + player.getName() + " угадал число " +
-                    computerNumber + " с " + (i + 1) + " попытки");
+                    targetNumber + " с " + (i + 1) + " попытки");
             return true;
         } else if (count == 9) {
             System.out.println("У " + playerSequence + " игрока кончились попытки");
-        } else if (player.findNumber(i) > computerNumber) {
-            System.out.println("Число " + playerSequence + " " + IS_BIGGER);
         } else {
-            System.out.println("Число " + playerSequence + " " + IS_LOWER);
+            String comparison = player.getLastNumber(i) > targetNumber ? "Число " + playerSequence + " " + IS_BIGGER :
+                    "Число " + playerSequence + " " + IS_LOWER;
+            System.out.println(comparison);
         }
         return false;
     }
 
     private void printPlayerNumbers(Player player) {
-        int[] numbersCopy = Arrays.copyOf(player.getNumbers(), (count + 1));
+        int[] numbers = Arrays.copyOf(player.getNumbers(), (count + 1));
         System.out.print("\nЧисла игрока " + player.getName() + ": ");
-        for (int amount : numbersCopy) {
-            System.out.print(amount + " ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
         }
     }
 
-    public void playAgain() {
+    public void setDefaultValues() {
         Arrays.fill(player1.getNumbers(), 0, (count + 1), 0);
         Arrays.fill(player2.getNumbers(), 0, (count + 1), 0);
         count = 0;
