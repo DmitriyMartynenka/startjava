@@ -34,7 +34,9 @@ public class GuessNumber {
         printPlayerNumbers(player1);
         printPlayerNumbers(player2);
         System.out.println();
-        setDefaultValues();
+        player1.clear(player1);
+        player2.clear(player2);
+        count = 0;
     }
 
     private int randomNumber() {
@@ -64,11 +66,5 @@ public class GuessNumber {
         for (int number : numbers) {
             System.out.print(number + " ");
         }
-    }
-
-    public void setDefaultValues() {
-        Arrays.fill(player1.getNumbers(), 0, (count + 1), 0);
-        Arrays.fill(player2.getNumbers(), 0, (count + 1), 0);
-        count = 0;
     }
 }
