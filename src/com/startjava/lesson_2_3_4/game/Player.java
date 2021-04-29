@@ -15,8 +15,8 @@ public class Player {
         return name;
     }
 
-    public int[] getNumbers() {
-        return Arrays.copyOf(numbers, numbers.length);
+    public int[] getNumbers(int attempt) {
+        return Arrays.copyOf(numbers, attempt + 1);
     }
 
     public int getLastNumber(int index) {
@@ -27,7 +27,7 @@ public class Player {
         numbers[index] = number;
     }
 
-    public void clear(Player player){
-        Arrays.fill(player.numbers, 0);
+    public void clear(int attempt) {
+        Arrays.fill(numbers, 0, attempt,0);
     }
 }
