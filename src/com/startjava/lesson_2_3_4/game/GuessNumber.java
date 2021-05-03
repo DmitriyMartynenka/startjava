@@ -21,8 +21,8 @@ public class GuessNumber {
         int targetNumber = randomNumber();
         System.out.println("У каждого игрока по 10 попыток");
         for (int i = 0; i < 10; i++, count++) {
-            if (playerGuess(targetNumber, i, player1)) break;
-            if (playerGuess(targetNumber, i, player2)) break;
+            if (makeMove(targetNumber, i, player1)) break;
+            if (makeMove(targetNumber, i, player2)) break;
         }
         printPlayerNumbers(player1);
         printPlayerNumbers(player2);
@@ -37,8 +37,8 @@ public class GuessNumber {
         return random.nextInt(100) + 1;
     }
 
-    private boolean playerGuess(int targetNumber, int i, Player player) {
-        makeMove(player);
+    private boolean makeMove(int targetNumber, int i, Player player) {
+        System.out.println(player.getName() + " делает ход");
         player.addNumber(i, sc.nextInt());
         if (player.getLastNumber(i) == targetNumber) {
             System.out.print("Игрок " + player.getName() + " угадал число " +
@@ -51,10 +51,6 @@ public class GuessNumber {
             System.out.println("Число игрока " + resultOfComparison);
         }
         return false;
-    }
-
-    private void makeMove(Player player) {
-        System.out.println(player.getName() + " делает ход");
     }
 
     private void printPlayerNumbers(Player player) {
